@@ -1,0 +1,4 @@
+F:\Iron.GPS\Iron.GPS.DataModels\bin\Debug\Iron.GPS.DataModels.dll
+F:\Iron.GPS\Iron.GPS.DataModels\bin\Debug\Iron.GPS.DataModels.pdb
+F:\Iron.GPS\Iron.GPS.DataModels\obj\Debug\Iron.GPS.DataModels.dll
+F:\Iron.GPS\Iron.GPS.DataModels\obj\Debug\Iron.GPS.DataModels.pdb

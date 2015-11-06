@@ -1,0 +1,24 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Alter
+       [dbo].[User] (Table)
+     Create
+       [dbo].[Asset] (Table)
+       [dbo].[AssetGroup] (Table)
+       [dbo].[User2Asset] (Table)
+       [dbo].[FK_Asset_AssetGroup] (Foreign Key)
+       [dbo].[FK_User_User] (Foreign Key)
+
+** Supporting actions
+
+The project and target databases have different collation settings. Deployment errors might occur.
+

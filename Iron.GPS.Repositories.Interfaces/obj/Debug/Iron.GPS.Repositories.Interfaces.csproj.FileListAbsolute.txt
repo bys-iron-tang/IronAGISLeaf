@@ -1,0 +1,4 @@
+F:\Iron.GPS\Iron.GPS.Repositories.Interfaces\bin\Debug\Iron.GPS.Repositories.Interfaces.dll
+F:\Iron.GPS\Iron.GPS.Repositories.Interfaces\bin\Debug\Iron.GPS.Repositories.Interfaces.pdb
+F:\Iron.GPS\Iron.GPS.Repositories.Interfaces\obj\Debug\Iron.GPS.Repositories.Interfaces.dll
+F:\Iron.GPS\Iron.GPS.Repositories.Interfaces\obj\Debug\Iron.GPS.Repositories.Interfaces.pdb

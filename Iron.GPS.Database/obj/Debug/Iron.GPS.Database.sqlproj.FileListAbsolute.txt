@@ -1,0 +1,18 @@
+d:\visual studio 2013\Iron.GPS.Database\bin\Debug\Iron.GPS.Database.dacpac
+d:\visual studio 2013\Iron.GPS.Database\bin\Debug\Iron.GPS.Database.dll
+d:\visual studio 2013\Iron.GPS.Database\bin\Debug\Iron.GPS.Database.pdb
+d:\visual studio 2013\Iron.GPS.Database\obj\Debug\Iron.GPS.Database.dll
+d:\visual studio 2013\Iron.GPS.Database\obj\Debug\Iron.GPS.Database.pdb
+d:\visual studio 2013\Iron.GPS.Database\obj\Debug\Model.xml
+d:\visual studio 2013\Iron.GPS.Database\obj\Debug\refactor.xml
+d:\visual studio 2013\Iron.GPS.Database\obj\Debug\postdeploy.sql
+d:\visual studio 2013\Iron.GPS.Database\obj\Debug\predeploy.sql
+F:\Iron.GPS\Iron.GPS.Database\bin\Debug\Iron.GPS.Database.dacpac
+F:\Iron.GPS\Iron.GPS.Database\bin\Debug\Iron.GPS.Database.dll
+F:\Iron.GPS\Iron.GPS.Database\bin\Debug\Iron.GPS.Database.pdb
+F:\Iron.GPS\Iron.GPS.Database\obj\Debug\Iron.GPS.Database.dll
+F:\Iron.GPS\Iron.GPS.Database\obj\Debug\Iron.GPS.Database.pdb
+F:\Iron.GPS\Iron.GPS.Database\obj\Debug\Model.xml
+F:\Iron.GPS\Iron.GPS.Database\obj\Debug\refactor.xml
+F:\Iron.GPS\Iron.GPS.Database\obj\Debug\postdeploy.sql
+F:\Iron.GPS\Iron.GPS.Database\obj\Debug\predeploy.sql

@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IronGPSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Asset">
+          <Key>
+            <PropertyRef Name="AssetId" />
+          </Key>
+          <Property Name="AssetId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+          <Property Name="AssetGroupId" Type="uniqueidentifier" />
+          <Property Name="AssetName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientId" Type="bigint" />
+          <Property Name="IMEIPwd" Type="nvarchar" MaxLength="50" />
+          <Property Name="EnterpriseNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="SimCardNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeviceType" Type="int" />
+          <Property Name="InstanllDate" Type="datetime" />
+          <Property Name="ExpiredDate" Type="datetime" />
+          <Property Name="CarColor" Type="nvarchar" MaxLength="50" />
+          <Property Name="CarType" Type="int" />
+          <Property Name="OwnerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OwnerTel" Type="nvarchar" MaxLength="50" />
+          <Property Name="OwnerTel1" Type="nvarchar" MaxLength="50" />
+          <Property Name="OwnerTel2" Type="nvarchar" MaxLength="50" />
+          <Property Name="OwnerAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="ForwardingType" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyId" Type="uniqueidentifier" />
+          <Property Name="OilCapacity" Type="float" />
+        </EntityType>
+        <EntityType Name="AssetGroup">
+          <Key>
+            <PropertyRef Name="AssetGroupId" />
+          </Key>
+          <Property Name="AssetGroupId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ParentAssetGroupId" Type="uniqueidentifier" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DisplayIndex" Type="int" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+          <Property Name="CompanyId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ParentUserId" Type="uniqueidentifier" />
+          <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExpiredDate" Type="datetime" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Company" Type="nvarchar" MaxLength="200" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="200" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="LimitedSubUserCount" Type="int" />
+          <Property Name="LimitedAssetCount" Type="int" />
+          <Property Name="IsAliasUser" Type="bit" />
+          <Property Name="LoginTimes" Type="int" />
+          <Property Name="CompanyId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="User2Asset">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="AssetId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssetId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Asset_AssetGroup">
+          <End Role="AssetGroup" Type="Self.AssetGroup" Multiplicity="0..1" />
+          <End Role="Asset" Type="Self.Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssetGroup">
+              <PropertyRef Name="AssetGroupId" />
+            </Principal>
+            <Dependent Role="Asset">
+              <PropertyRef Name="AssetGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User1" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="User1">
+              <PropertyRef Name="ParentUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IronGPSModelStoreContainer">
+          <EntitySet Name="Asset" EntityType="Self.Asset" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AssetGroup" EntityType="Self.AssetGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User2Asset" EntityType="Self.User2Asset" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Asset_AssetGroup" Association="Self.FK_Asset_AssetGroup">
+            <End Role="AssetGroup" EntitySet="AssetGroup" />
+            <End Role="Asset" EntitySet="Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_User" Association="Self.FK_User_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IronGPSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Asset">
+          <Key>
+            <PropertyRef Name="AssetId" />
+          </Key>
+          <Property Name="AssetId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" />
+          <Property Name="AssetGroupId" Type="Guid" />
+          <Property Name="AssetName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClientId" Type="Int64" />
+          <Property Name="IMEIPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EnterpriseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SimCardNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceType" Type="Int32" />
+          <Property Name="InstanllDate" Type="DateTime" Precision="3" />
+          <Property Name="ExpiredDate" Type="DateTime" Precision="3" />
+          <Property Name="CarColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CarType" Type="Int32" />
+          <Property Name="OwnerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerTel1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerTel2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ForwardingType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Guid" />
+          <Property Name="OilCapacity" Type="Double" />
+          <NavigationProperty Name="AssetGroup" Relationship="Self.FK_Asset_AssetGroup" FromRole="Asset" ToRole="AssetGroup" />
+        </EntityType>
+        <EntityType Name="AssetGroup">
+          <Key>
+            <PropertyRef Name="AssetGroupId" />
+          </Key>
+          <Property Name="AssetGroupId" Type="Guid" Nullable="false" />
+          <Property Name="ParentAssetGroupId" Type="Guid" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayIndex" Type="Int32" />
+          <Property Name="UserId" Type="Guid" />
+          <Property Name="CompanyId" Type="Guid" />
+          <NavigationProperty Name="Asset" Relationship="Self.FK_Asset_AssetGroup" FromRole="AssetGroup" ToRole="Asset" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="ParentUserId" Type="Guid" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExpiredDate" Type="DateTime" Precision="3" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LimitedSubUserCount" Type="Int32" />
+          <Property Name="LimitedAssetCount" Type="Int32" />
+          <Property Name="IsAliasUser" Type="Boolean" />
+          <Property Name="LoginTimes" Type="Int32" />
+          <Property Name="CompanyId" Type="Guid" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_User_User" FromRole="User" ToRole="User1" />
+          <NavigationProperty Name="User2" Relationship="Self.FK_User_User" FromRole="User1" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User2Asset">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="AssetId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="AssetId" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK_Asset_AssetGroup">
+          <End Role="AssetGroup" Type="Self.AssetGroup" Multiplicity="0..1" />
+          <End Role="Asset" Type="Self.Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssetGroup">
+              <PropertyRef Name="AssetGroupId" />
+            </Principal>
+            <Dependent Role="Asset">
+              <PropertyRef Name="AssetGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User1" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="User1">
+              <PropertyRef Name="ParentUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IronGPSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Asset" EntityType="Self.Asset" />
+          <EntitySet Name="AssetGroup" EntityType="Self.AssetGroup" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="User2Asset" EntityType="Self.User2Asset" />
+          <AssociationSet Name="FK_Asset_AssetGroup" Association="Self.FK_Asset_AssetGroup">
+            <End Role="AssetGroup" EntitySet="AssetGroup" />
+            <End Role="Asset" EntitySet="Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_User" Association="Self.FK_User_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IronGPSModelStoreContainer" CdmEntityContainer="IronGPSEntities">
+          <EntitySetMapping Name="Asset">
+            <EntityTypeMapping TypeName="IronGPSModel.Asset">
+              <MappingFragment StoreEntitySet="Asset">
+                <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AssetGroupId" ColumnName="AssetGroupId" />
+                <ScalarProperty Name="AssetName" ColumnName="AssetName" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="IMEIPwd" ColumnName="IMEIPwd" />
+                <ScalarProperty Name="EnterpriseNumber" ColumnName="EnterpriseNumber" />
+                <ScalarProperty Name="SimCardNo" ColumnName="SimCardNo" />
+                <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+                <ScalarProperty Name="InstanllDate" ColumnName="InstanllDate" />
+                <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
+                <ScalarProperty Name="CarColor" ColumnName="CarColor" />
+                <ScalarProperty Name="CarType" ColumnName="CarType" />
+                <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+                <ScalarProperty Name="OwnerTel" ColumnName="OwnerTel" />
+                <ScalarProperty Name="OwnerTel1" ColumnName="OwnerTel1" />
+                <ScalarProperty Name="OwnerTel2" ColumnName="OwnerTel2" />
+                <ScalarProperty Name="OwnerAddress" ColumnName="OwnerAddress" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ForwardingType" ColumnName="ForwardingType" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="OilCapacity" ColumnName="OilCapacity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssetGroup">
+            <EntityTypeMapping TypeName="IronGPSModel.AssetGroup">
+              <MappingFragment StoreEntitySet="AssetGroup">
+                <ScalarProperty Name="AssetGroupId" ColumnName="AssetGroupId" />
+                <ScalarProperty Name="ParentAssetGroupId" ColumnName="ParentAssetGroupId" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="DisplayIndex" ColumnName="DisplayIndex" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="IronGPSModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ParentUserId" ColumnName="ParentUserId" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LimitedSubUserCount" ColumnName="LimitedSubUserCount" />
+                <ScalarProperty Name="LimitedAssetCount" ColumnName="LimitedAssetCount" />
+                <ScalarProperty Name="IsAliasUser" ColumnName="IsAliasUser" />
+                <ScalarProperty Name="LoginTimes" ColumnName="LoginTimes" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User2Asset">
+            <EntityTypeMapping TypeName="IronGPSModel.User2Asset">
+              <MappingFragment StoreEntitySet="User2Asset">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
