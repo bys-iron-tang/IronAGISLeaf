@@ -1,5 +1,4 @@
 F:\Iron.GPS\Iron.GPS.Services.Interfaces\bin\Debug\Iron.GPS.Services.Interfaces.dll
 F:\Iron.GPS\Iron.GPS.Services.Interfaces\bin\Debug\Iron.GPS.Services.Interfaces.pdb
-F:\Iron.GPS\Iron.GPS.Services.Interfaces\obj\Debug\Iron.GPS.Services.Interfaces.csprojResolveAssemblyReference.cache
 F:\Iron.GPS\Iron.GPS.Services.Interfaces\obj\Debug\Iron.GPS.Services.Interfaces.dll
 F:\Iron.GPS\Iron.GPS.Services.Interfaces\obj\Debug\Iron.GPS.Services.Interfaces.pdb

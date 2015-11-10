@@ -18,11 +18,11 @@ namespace Iron.GPS.Repositories.Interfaces
 
         int Count(Expression<Func<TEntity, bool>> filter);
 
-        object Add(TEntity item);
+        void Add(TEntity item);
 
         void Add(IList<TEntity> items);
 
-        void Update<TEntity>(TEntity item);
+        void Update(TEntity item);
 
         void Update(IList<TEntity> items);
 
