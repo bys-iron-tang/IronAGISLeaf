@@ -61,8 +61,8 @@ namespace Iron.GPS.Repositories
         public void Add(TEntity item)
         {
             //this.DbSet.Attach(item);
-            this.DBContextEnt.Entry(item).State = EntityState.Added;
             this.DbSet.Add(item);
+            this.DBContextEnt.Entry(item).State = EntityState.Added;
             this.DBContextEnt.SaveChanges();
         }
 
@@ -71,8 +71,8 @@ namespace Iron.GPS.Repositories
 
             foreach (var item in items)
             {
-                this.DBContextEnt.Entry(item).State = EntityState.Added;
                 this.DbSet.Add(item);
+                this.DBContextEnt.Entry(item).State = EntityState.Added;
             }
 
             this.DBContextEnt.SaveChanges();
@@ -80,28 +80,54 @@ namespace Iron.GPS.Repositories
 
         public void Update(TEntity item)
         {
-            this.DBContextEnt.Entry(item).State = EntityState.Modified;
             this.DbSet.Attach(item);
+            this.DBContextEnt.Entry(item).State = EntityState.Modified;
             this.DBContextEnt.SaveChanges();
         }
 
-        void Update(IList<TEntity> items)
-        { 
+        public void Update(IList<TEntity> items)
+        {
+            foreach (var item in items)
+            {
+                this.DbSet.Attach(item);
+                this.DBContextEnt.Entry(item).State = EntityState.Modified;
+            }
+
+            this.DBContextEnt.SaveChanges();
             
         }
 
-        void Delete(TEntity item)
-        { 
-            
+        public void Delete(TEntity item)
+        {
+            this.DbSet.Attach(item);
+            this.DBContextEnt.Entry(item).State = EntityState.Deleted;
+            this.DBContextEnt.SaveChanges();
         }
 
-        void Delete(IList<TEntity> item)
-        { 
-            
+        public void Delete(IList<TEntity> items)
+        {
+            foreach (var item in items)
+            {
+                this.DbSet.Attach(item);
+                this.DBContextEnt.Entry(item).State = EntityState.Deleted;
+            }
+
+            this.DBContextEnt.SaveChanges();
         }
 
-        void Delete(Expression<Func<TEntity, bool>> whereClause)
-        { 
+        public void Delete(Expression<Func<TEntity, bool>> whereClause)
+        {
+            var items = this.DbSet.Where(whereClause).AsQueryable();
+            if (items != null && items.Count() > 0)
+            {
+                foreach (var item in items)
+                {
+                    this.DbSet.Attach(item);
+                    this.DBContextEnt.Entry(item).State = EntityState.Deleted;
+                }
+
+                this.DBContextEnt.SaveChanges();
+            }
         }
 
         public virtual void Dispose()
