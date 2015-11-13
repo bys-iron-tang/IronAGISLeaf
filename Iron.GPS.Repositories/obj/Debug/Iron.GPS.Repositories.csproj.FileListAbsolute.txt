@@ -3,3 +3,12 @@ F:\Iron.GPS\Iron.GPS.Repositories\bin\Debug\Iron.GPS.Repositories.pdb
 F:\Iron.GPS\Iron.GPS.Repositories\obj\Debug\Iron.GPS.Repositories.dll
 F:\Iron.GPS\Iron.GPS.Repositories\obj\Debug\Iron.GPS.Repositories.pdb
 F:\Iron.GPS\Iron.GPS.Repositories\obj\Debug\Iron.GPS.Repositories.csprojResolveAssemblyReference.cache
+F:\Iron.GPS\Iron.GPS.Repositories\bin\Debug\Iron.GPS.Repositories.dll.config
+F:\Iron.GPS\Iron.GPS.Repositories\bin\Debug\EntityFramework.dll
+F:\Iron.GPS\Iron.GPS.Repositories\bin\Debug\EntityFramework.SqlServer.dll
+F:\Iron.GPS\Iron.GPS.Repositories\bin\Debug\Iron.GPS.Repositories.Interfaces.dll
+F:\Iron.GPS\Iron.GPS.Repositories\bin\Debug\Iron.GPS.Repositories.Provider.dll
+F:\Iron.GPS\Iron.GPS.Repositories\bin\Debug\Iron.GPS.Repositories.Interfaces.pdb
+F:\Iron.GPS\Iron.GPS.Repositories\bin\Debug\Iron.GPS.Repositories.Provider.pdb
+F:\Iron.GPS\Iron.GPS.Repositories\bin\Debug\EntityFramework.xml
+F:\Iron.GPS\Iron.GPS.Repositories\bin\Debug\EntityFramework.SqlServer.xml

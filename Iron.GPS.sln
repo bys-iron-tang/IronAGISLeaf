@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iron.GPS.Repositories.Provi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iron.GPS.Logging", "Iron.GPS.Logging\Iron.GPS.Logging.csproj", "{433D3745-742C-4270-897D-CD8AFFA74E0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iron.GPS.Common", "Iron.GPS.Common\Iron.GPS.Common.csproj", "{A46B6576-5C3C-4CA4-8057-126E761CAE67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{433D3745-742C-4270-897D-CD8AFFA74E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{433D3745-742C-4270-897D-CD8AFFA74E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{433D3745-742C-4270-897D-CD8AFFA74E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A46B6576-5C3C-4CA4-8057-126E761CAE67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A46B6576-5C3C-4CA4-8057-126E761CAE67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A46B6576-5C3C-4CA4-8057-126E761CAE67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A46B6576-5C3C-4CA4-8057-126E761CAE67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
