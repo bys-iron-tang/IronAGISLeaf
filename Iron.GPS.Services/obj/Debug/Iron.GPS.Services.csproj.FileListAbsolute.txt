@@ -1,4 +1,0 @@
-F:\Iron.GPS\Iron.GPS.Services\bin\Debug\Iron.GPS.Services.dll
-F:\Iron.GPS\Iron.GPS.Services\bin\Debug\Iron.GPS.Services.pdb
-F:\Iron.GPS\Iron.GPS.Services\obj\Debug\Iron.GPS.Services.dll
-F:\Iron.GPS\Iron.GPS.Services\obj\Debug\Iron.GPS.Services.pdb
