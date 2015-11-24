@@ -86,4 +86,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{0AA43347-2F14-4ED6-8E95-EC7719E7080E} = {BBAD3713-F8C5-454C-AC72-18C47745D657}
 	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
+	EndGlobalSection
 EndGlobal

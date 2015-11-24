@@ -11,7 +11,6 @@ namespace Iron.GPS.Logging
         string Name
         {
             get;
-            set;
         }
 
         void WriteLog(string logLevel, string message,string detail=null,string methodName=null);
