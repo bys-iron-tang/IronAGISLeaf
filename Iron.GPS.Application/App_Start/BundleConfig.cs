@@ -23,7 +23,7 @@ namespace Iron.GPS
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/requireJs").Include("~/Scripts/require.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/requireJs").Include("~/Scripts/require.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css",
                 "~/Content/bootstrap.css"));
