@@ -10,7 +10,7 @@
         @Scripts.Render("~/bundles/modernizr")
         @*@Scripts.Render("~/bundles/requireJs")*@
     </head>
-    <body>
+    <body ng-controller="indexController" ng-init="initializeController()" ng-cloak>
         <header>
             <div class="content-wrapper">
                 <div class="float-left">

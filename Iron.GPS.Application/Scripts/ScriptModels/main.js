@@ -8,7 +8,8 @@
         'ui-bootstrap': '../angular-ui/ui-bootstrap-tpls',
         'blockUI': '../angular-block-ui',
         'ngload': '../ngload.min',
-        'angular-sanitize': '../angular-sanitize'
+        'angular-sanitize': '../angular-sanitize',
+        'ajaxService': 'services/ajaxService'
     },
 
     //add angular modules that  does not support AMD out of box, put them in a shim

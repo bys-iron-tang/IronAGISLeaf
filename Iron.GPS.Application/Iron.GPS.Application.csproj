@@ -1091,6 +1091,7 @@
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\ScriptModels\application-configuration.js" />
     <Content Include="Scripts\ScriptModels\main.js" />
+    <Content Include="Scripts\ScriptModels\Services\AjaxServices.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1131,7 +1132,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\version.json" />
-    <Content Include="unity.config" />
+    <Content Include="unity.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\ngload.min.map" />
   </ItemGroup>
   <ItemGroup>

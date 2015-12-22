@@ -15,13 +15,22 @@ define(['angularAMD', 'angular-route', 'ui-bootstrap', 'angular-sanitize', 'bloc
         $httpProvider.defaults.withCredentials = true;
     });
 
-    app.config(function (blockUIConfigProvider) {
-        blockUIConfigProvider.message("loading.....");
-        blockUIConfigProvider.autoBlock(false);
-    });
+    //app.config(function (blockUIConfigProvider) {
+    //    blockUIConfigProvider.message("loading.....");
+    //    blockUIConfigProvider.autoBlock(false);
+    //});
 
     var indexController = function ($scope, $rootScope, $http, $location, blockUI) {
+        $scope.initializeController = function () {
+            if ($location.path() != "") {
+                $scope.initializeApplication($scope.initializeApplicationComplete, $scope.initializeApplicationError);
+            }
+        };
 
+        $scope.initializeApplication = function (successFunction, errorFuntion) {
+
+            $scope.AjaxGet = ("/api/main/InitializeApplication", successFunction, errorFunction);
+        };
     };
 
     indexController.$inject = ['$scope', '$rootScope', '$http', '$location', 'blockUI'];
