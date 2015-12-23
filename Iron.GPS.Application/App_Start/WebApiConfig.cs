@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web.Http;
 
 namespace Iron.GPS
@@ -9,6 +10,7 @@ namespace Iron.GPS
     {
         public static void Register(HttpConfiguration config)
         {
+            config.MapHttpAttributeRoutes();
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

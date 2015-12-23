@@ -1,6 +1,6 @@
 ﻿'use strict'
-define(['angularAMD', 'angular-route', 'ui-bootstrap', 'angular-sanitize', 'blockUI', ], function (angularAMD) {
-    var app = angular.module("mainModule", ['ngRoute', 'blockUI', 'ngSanitize', 'ui.bootstrap']);
+define(['angularAMD', 'angular-route', 'ui-bootstrap', 'angular-sanitize', ], function (angularAMD) {
+    var app = angular.module("mainModule", ['ngRoute', 'ngSanitize', 'ui.bootstrap']);
 
     app.filter("leadingZeros", function () {
         return function (data) {
@@ -22,18 +22,30 @@ define(['angularAMD', 'angular-route', 'ui-bootstrap', 'angular-sanitize', 'bloc
 
     var indexController = function ($scope, $rootScope, $http, $location, blockUI) {
         $scope.initializeController = function () {
-            if ($location.path() != "") {
+            //if ($location.path() != "") {
                 $scope.initializeApplication($scope.initializeApplicationComplete, $scope.initializeApplicationError);
-            }
+            //}
         };
 
-        $scope.initializeApplication = function (successFunction, errorFuntion) {
+        $scope.initializeApplication = function (successFunction, errorFunction) {
 
-            $scope.AjaxGet = ("/api/main/InitializeApplication", successFunction, errorFunction);
+            $scope.AjaxGet("/api/mainapi/InitializeApplication", successFunction, errorFunction);
+        };
+
+        $scope.initializeApplicationComplete = function (reponse) {
+           
+        };
+
+        $scope.AjaxGet = function (route, successFuntion, errorFunction) {
+            $http({ method: 'GET', url: route }).success(function (response, status, headers, config) {
+                successFunction(response, status);
+            }).error(function (response) {
+                errorFunction(response);
+            });
         };
     };
 
-    indexController.$inject = ['$scope', '$rootScope', '$http', '$location', 'blockUI'];
+    indexController.$inject = ['$scope', '$rootScope', '$http', '$location'];
 
     app.controller("indexController", indexController);
 

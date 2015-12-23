@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Iron.GPS.Common
 {
-    public sealed class IocContianer
+    public sealed class IocContainer
     {
         private static IUnityContainer _container;
 
@@ -42,6 +42,11 @@ namespace Iron.GPS.Common
             //{
             //    configure.Configure(_container);
             //}
+        }
+
+        public static T Resolve<T>()
+        {
+            return (T)InnerContainer.Resolve(typeof(T));
         }
     }
 }
