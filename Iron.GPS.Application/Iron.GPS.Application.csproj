@@ -206,7 +206,7 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebApiControllers\MainApiController.cs" />
+    <Compile Include="WebApiControllers\MainController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\angular-block-ui.css" />
@@ -1094,9 +1094,7 @@
     <Content Include="Scripts\ngload.min.js" />
     <Content Include="Scripts\r.js" />
     <Content Include="Scripts\require.js" />
-    <Content Include="Scripts\ScriptModels\AjaxService.js" />
     <Content Include="Scripts\ScriptModels\application-configuration.js" />
-    <Content Include="Scripts\ScriptModels\HomeController.js" />
     <Content Include="Scripts\ScriptModels\main.js" />
     <Content Include="Scripts\ScriptModels\Services\AjaxService.js" />
     <Content Include="Web.config">
@@ -1156,6 +1154,14 @@
     <ProjectReference Include="..\Iron.GPS.DataModels\Iron.GPS.DataModels.csproj">
       <Project>{91967b4d-da19-48f5-b4c3-6ced9621f1e3}</Project>
       <Name>Iron.GPS.DataModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Iron.GPS.Services.Interfaces\Iron.GPS.Services.Interfaces.csproj">
+      <Project>{1b9f77bd-ffd7-4942-b3af-e9eedd94922f}</Project>
+      <Name>Iron.GPS.Services.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Iron.GPS.Services\Iron.GPS.Services.csproj">
+      <Project>{546c3859-a1c0-4790-86e2-47fb89cf2334}</Project>
+      <Name>Iron.GPS.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

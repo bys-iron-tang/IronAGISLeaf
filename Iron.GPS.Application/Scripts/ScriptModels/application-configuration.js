@@ -29,7 +29,7 @@ define(['angularAMD', 'angular-route', 'ui-bootstrap', 'angular-sanitize', ], fu
 
         $scope.initializeApplication = function (successFunction, errorFunction) {
 
-            $scope.AjaxGet("/api/mainapi/InitializeApplication", successFunction, errorFunction);
+            $scope.AjaxGet("/api/main/InitializeApplication", successFunction, errorFunction);
         };
 
         $scope.initializeApplicationComplete = function (reponse) {
