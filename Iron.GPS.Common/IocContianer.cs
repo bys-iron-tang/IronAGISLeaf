@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Iron.GPS.Common
 {
-    public sealed class IocContainer
+    public static class IocContainer
     {
         private static IUnityContainer _container;
 

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Iron.GPS.Repositories.Interfaces
+namespace Iron.GPS.Repository.Interfaces
 {
     public interface IApplicationDataRepository
     {

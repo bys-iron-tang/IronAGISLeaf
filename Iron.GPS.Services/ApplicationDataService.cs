@@ -1,6 +1,6 @@
 ﻿using Iron.GPS.Common;
 using Iron.GPS.DataModels;
-using Iron.GPS.Repositories.Interfaces;
+using Iron.GPS.Repository.Interfaces;
 using Iron.GPS.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -13,10 +13,10 @@ namespace Iron.GPS.Services
     public class ApplicationDataService:IApplicationDataService
     {
         IApplicationDataRepository appDataRepository;
-
         public ApplicationDataService()
         {
             appDataRepository = IocContainer.Resolve<IApplicationDataRepository>();
+
         }
 
         public List<ApplicationMenu> GetMenuItems()

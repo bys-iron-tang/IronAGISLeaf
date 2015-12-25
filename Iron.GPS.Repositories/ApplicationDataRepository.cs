@@ -1,5 +1,5 @@
 ﻿using Iron.GPS.DataModels;
-using Iron.GPS.Repositories.Interfaces;
+using Iron.GPS.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace Iron.GPS.Repositories
         public List<ApplicationMenu> GetMenuItems()
         {
             List<ApplicationMenu> menus = new List<ApplicationMenu>();
-            ApplicationMenu homeMenu=new ApplicationMenu
+            ApplicationMenu homeMenu = new ApplicationMenu
             {
                 MenuDescription = "Home Page",
                 MenuId = Guid.NewGuid(),

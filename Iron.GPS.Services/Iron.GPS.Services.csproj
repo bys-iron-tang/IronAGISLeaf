@@ -55,6 +55,10 @@
       <Project>{8c900483-0ad9-4900-b6c9-82fb28f289c6}</Project>
       <Name>Iron.GPS.Repositories.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Iron.GPS.Repositories\Iron.GPS.Repositories.csproj">
+      <Project>{bb6020fd-28bb-45ee-b16e-8502993a0653}</Project>
+      <Name>Iron.GPS.Repositories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Iron.GPS.Services.Interfaces\Iron.GPS.Services.Interfaces.csproj">
       <Project>{1b9f77bd-ffd7-4942-b3af-e9eedd94922f}</Project>
       <Name>Iron.GPS.Services.Interfaces</Name>

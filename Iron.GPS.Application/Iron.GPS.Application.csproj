@@ -1151,6 +1151,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Iron.GPS.Common\Iron.GPS.Common.csproj">
+      <Project>{a46b6576-5c3c-4ca4-8057-126e761cae67}</Project>
+      <Name>Iron.GPS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Iron.GPS.DataModels\Iron.GPS.DataModels.csproj">
       <Project>{91967b4d-da19-48f5-b4c3-6ced9621f1e3}</Project>
       <Name>Iron.GPS.DataModels</Name>
