@@ -1,6 +1,6 @@
 ﻿'use strict'
-define(['angularAMD', 'angular-route', 'ui-bootstrap', 'angular-sanitize', ], function (angularAMD) {
-    var app = angular.module("mainModule", ['ngRoute', 'ngSanitize', 'ui.bootstrap']);
+define(['angularAMD', 'angular-route', 'ui-bootstrap', 'angular-sanitize', 'ajaxService'], function (angularAMD) {
+    var app = angular.module("mainModule", ['ngRoute', 'ngSanitize', 'ui.bootstrap', 'ngSanitize', 'ajaxService']);
 
     app.filter("leadingZeros", function () {
         return function (data) {
@@ -28,12 +28,15 @@ define(['angularAMD', 'angular-route', 'ui-bootstrap', 'angular-sanitize', ], fu
         };
 
         $scope.initializeApplication = function (successFunction, errorFunction) {
+            //$scope.AjaxGet("/api/main/InitializeApplication", successFunction, errorFunction);
+            ajaxService.AjaxGet("/api/main/InitializeApplication", successFunction, errorFunction);
 
-            $scope.AjaxGet("/api/main/InitializeApplication", successFunction, errorFunction);
         };
 
         $scope.initializeApplicationComplete = function (reponse) {
-           
+            if (response) {
+                var res = response;
+            }
         };
 
         $scope.AjaxGet = function (route, successFuntion, errorFunction) {
