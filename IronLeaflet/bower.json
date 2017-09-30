@@ -1,0 +1,17 @@
+{
+  "name": "IronAGIS",
+  "description": "JavaScript library for interactive maps",
+  "main": "index.js",
+  "authors": [
+    "Iron Tang"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Iron",
+    "GIS"
+  ],
+  "homepage": "",
+  "dependencies": {
+    "angular": "angularjs#^1.5.9"
+  }
+}
