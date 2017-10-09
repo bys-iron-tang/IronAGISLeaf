@@ -11,7 +11,12 @@ AGIS.DomEvent={
 				this._on(obj,types[i],fn,context);
 			}
 		}
-	}
 
-	return this;
+		return this;
+	},
+
+	_on:function(obj,type,fn,context){
+		var id=type+AGIS.stamp(fn);
+	},
+
 }

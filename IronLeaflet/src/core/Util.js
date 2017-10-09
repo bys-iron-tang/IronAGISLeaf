@@ -43,6 +43,10 @@ AGIS.Util={
 		return false;
 	},
 
+	isArray:Array.isArray||function(obj){
+		return (Object.prototype.toString.call(obj)==='[object Array]');
+	},
+
 	lastId:0,
 
 	setOptions:function(obj,options){
