@@ -1,3 +1,26 @@
+AGIS.Layer=AGIS.Evented.extend({
+	options:{
+		panel:'overlayerPanel'
+	},
+
+	addTo:function(map){
+		map.addLayer(this);
+		return this;
+	},
+
+	_layerAdd:function(e){
+		var map=e.target;
+
+		this._map=map;
+
+		//add events
+		this.onAdd(this);
+		
+	}
+
+});
+
+
 AGIS.Map.include({
     addLayer: function(layer) {
         var id = AGIS.stamp(layer);

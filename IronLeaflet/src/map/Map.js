@@ -16,6 +16,9 @@ AGIS.Map = AGIS.Evented.extend({
         this._initLayout();
         this._initEvents();
 
+        if (options.zoom !== undefined) {
+            this._zoom = this._limitZoom(options.zoom);
+        }
 
         this._layers = {};
         //call hooks
@@ -55,8 +58,20 @@ AGIS.Map = AGIS.Evented.extend({
     _initEvents: function(remove) {
         this._targets = {};
         this._targets[AGIS.stamp(this._container)] = this;
+    },
 
+    _limitZoom: function(zoom) {
+        var min = this.getMinZoom(),
+            max = this.getMaxZoom();
+        return Math.max(min, Math.min(max, zoom));
+    },
 
+    getMinZoom: function() {
+        return this.options.minZoom === undefined ? 0 : this.options.minZoom;
+    },
+
+    getMaxZoom: function() {
+        return this.options.maxZoom === undefined ? 0 : this.options.maxZoom;
     },
 
     // _addLayers:function(layers){
@@ -67,6 +82,17 @@ AGIS.Map = AGIS.Evented.extend({
         zoom = zoom === undefined ? this.getZoom() : zoom;
         this._resetView(AGIS.latLng(center), zoom);
         return this;
+    },
+
+    _resetView:function(center,zoom){
+    	AGIS.DomUtil.setPosition(this._mapPanel,new AGIS.Point(0,0));
+
+    	var loading = !this._loaded;
+    	this._loaded = true;
+
+    	zoom = this._limitZoom(zoom);
+
+    	//todo add events
     },
 
     whenReady: function(callback, context) {
