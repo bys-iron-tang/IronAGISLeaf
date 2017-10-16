@@ -1,22 +1,26 @@
-AGIS.Layer=AGIS.Evented.extend({
-	options:{
-		panel:'overlayerPanel'
-	},
+AGIS.Layer = AGIS.Evented.extend({
+    options: {
+        panel: 'overlayerPanel'
+    },
 
-	addTo:function(map){
-		map.addLayer(this);
-		return this;
-	},
+    addTo: function(map) {
+        map.addLayer(this);
+        return this;
+    },
 
-	_layerAdd:function(e){
-		var map=e.target;
+    _layerAdd: function(e) {
+        var map = e.target;
 
-		this._map=map;
+        this._map = map;
 
-		//add events
-		this.onAdd(this);
-		
-	}
+        //add events
+        this.onAdd(this);
+
+    },
+
+    getPanel: function(name) {
+        return this._map.getPanel(name ? (this.options[name] || name) : this.options.panel);
+    }
 
 });
 
@@ -41,8 +45,8 @@ AGIS.Map.include({
     _addLayer: function(layers) {
         layers = layers ? (AGIS.Util.isArray(layers) ? layers : [layers]) : [];
 
-        for(var i=0,len=layers.length;i<len;i++){
-        	this.addLayer(layers[i]);
+        for (var i = 0, len = layers.length; i < len; i++) {
+            this.addLayer(layers[i]);
         }
     }
 });

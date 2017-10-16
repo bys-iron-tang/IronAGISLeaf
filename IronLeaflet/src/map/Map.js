@@ -66,6 +66,10 @@ AGIS.Map = AGIS.Evented.extend({
         return Math.max(min, Math.min(max, zoom));
     },
 
+    getPanel: function(name) {
+        return typeof name === 'string' ? this._panels[name] : name;
+    },
+
     getMinZoom: function() {
         return this.options.minZoom === undefined ? 0 : this.options.minZoom;
     },
@@ -78,21 +82,55 @@ AGIS.Map = AGIS.Evented.extend({
 
     // },
 
+    getCenter:function(){
+
+    	return this.layerPointToLatLng(this._getCenterLayerPoint());
+    },
+
+    getZoom:function(){
+    	return this._zoom;
+    },
+
+    _getCenterLayerPoint:function(){
+    	return this.containerPointToLayerPoint(this.getSize()._dividedBy(2));
+    },
+
+    getSize:function(){
+    	if(!this._size&&this._sizeChanged){
+    		this._size=new AGIS.Point(this._container.clientWidth,
+    				this._container.clientHeight);
+    		this._sizeChanged=false;
+    	}
+
+    	return this._size.clone();
+    },
+
+    getPixelOrigin:function(){
+    	//check if loaded
+    	return this._pixelOrigin;
+    },
+
+    project:function(latLng,zoom){
+    	zoom = zoom === undefined ? this._zoom : zoom;
+
+    	return this.options.crs.latLngToPoint(AGIS.latLng(latlng), zoom);
+    },
+
     setView: function(center, zoom) {
         zoom = zoom === undefined ? this.getZoom() : zoom;
         this._resetView(AGIS.latLng(center), zoom);
         return this;
     },
 
-    _resetView:function(center,zoom){
-    	AGIS.DomUtil.setPosition(this._mapPanel,new AGIS.Point(0,0));
+    _resetView: function(center, zoom) {
+        AGIS.DomUtil.setPosition(this._mapPanel, new AGIS.Point(0, 0));
 
-    	var loading = !this._loaded;
-    	this._loaded = true;
+        var loading = !this._loaded;
+        this._loaded = true;
 
-    	zoom = this._limitZoom(zoom);
+        zoom = this._limitZoom(zoom);
 
-    	//todo add events
+        //todo add events
     },
 
     whenReady: function(callback, context) {

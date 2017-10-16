@@ -3,25 +3,25 @@ AGIS.DomUtil = {
         return typeof id === 'string' ? document.getElementById(id) : id;
     },
 
-    create:function(tagName,className,container){
-    	var el=document.createElement(tagName);
-    	el.className=className||'';
+    create: function(tagName, className, container) {
+        var el = document.createElement(tagName);
+        el.className = className || '';
 
-    	if(container){
-    		container.appendChild(el);
-    	}
+        if (container) {
+            container.appendChild(el);
+        }
 
-    	return el;
+        return el;
     },
 
-    setPosition:function(ele,point){
-    	ele._agis_pos=point;
-    	if(AGIS.Browser.any3d){
-    		//Todo
-    	}else{
-    		ele.style.left=point.x+'px';
-    		ele.style.top=point.y+'px';
-    	}
+    setPosition: function(ele, point) {
+        ele._agis_pos = point;
+        if (AGIS.Browser.any3d) {
+            //Todo
+        } else {
+            ele.style.left = point.x + 'px';
+            ele.style.top = point.y + 'px';
+        }
     },
 
     addClass: function(ele, name) {
@@ -31,17 +31,24 @@ AGIS.DomUtil = {
                 ele.classList.add(classes[i]);
             }
         } else if (!AGIS.DomUtil.hasClass(ele, name)) {
-        	var className=AGIS.DomUtil.getClass(ele);
-        	AGIS.DomUtil.setClass(ele,(className ? className + ' ' : '') + name);
+            var className = AGIS.DomUtil.getClass(ele);
+            AGIS.DomUtil.setClass(ele, (className ? className + ' ' : '') + name);
         }
     },
 
-    setClass:function(ele,name){
-    	if(ele.className.baseVal===undefined){
-    		ele.className=name;
-    	}else{
-    		ele.className.baseVal=name;
-    	}
+    setClass: function(ele, name) {
+        if (ele.className.baseVal === undefined) {
+            ele.className = name;
+        } else {
+            ele.className.baseVal = name;
+        }
+    },
+
+    remove: function(el) {
+        var parent = el.parentNode;
+        if (parent) {
+            parent.removeChild(el);
+        }
     },
 
     hasClass: function(ele, name) {
@@ -64,7 +71,7 @@ AGIS.DomUtil = {
             value = css ? css[style] : null;
         }
 
-        return value==='auto'?null:value;
+        return value === 'auto' ? null : value;
     },
 
 }
